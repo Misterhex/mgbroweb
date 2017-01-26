@@ -1,0 +1,23 @@
+<div class="media ">
+    <div ui-sref="chapter({ category: chapter.category_name, chapterNo: chapter.chapter_no})" class="media-left">
+        <a ui-sref="chapter({ category: chapter.category_name, chapterNo: chapter.chapter_no})">
+            <img style="height:164px; width:124px; margin-right: 5px" class="pull-left media-object img-rounded" ng-src="{{chapter.hosted_category_image | replaceImageHost}}" alt="">
+        </a>
+    </div>
+    <div class="media-body">
+        <h5 class="media-heading">
+            <a style="color: black" ui-sref="chapter({ category: chapter.category_name, chapterNo: chapter.chapter_no})">
+                {{chapter.chapter_name}}
+            </a>
+        </h5>
+        <span>
+            <a style="color: #777;" ui-sref="category({category: chapter.category_name})">
+                {{chapter.category_name}}
+            </a>
+        </span>
+        <br/>
+        <span>{{chapter.scrapped_time | fromUnixTimeAgo }}</span>
+        <br/>
+        <em>{{chapter.view_count || 1}} views</em>
+    </div>
+</div>

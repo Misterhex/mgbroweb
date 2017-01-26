@@ -1,0 +1,43 @@
+<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a ng-href="/" class="navbar-brand">Manga Book&nbsp;<i class="fa fa-book" aria-hidden="true"></i></a>
+        </div>
+
+        <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+                    <a ng-href="{{item.link}}">{{item.title}}</a>
+                </li>
+
+                <li role="presentation" class="dropdown" ng-class="{active: isActiveGenre()}">
+                    <a class="dropdown-toggle" data-toggle="dropdown" ng-href="/genres" role="button" aria-haspopup="true" aria-expanded="false">
+                        Genres <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="item in genres" ng-class="{active: isActive(item.link)}">
+                            <a ng-href="{{item.link}}">{{item.title}}</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li ng-class="{active: isActive('/random')}">
+                    <a ng-click="onClick('random')" ng-href="random">Random</a>
+                </li>
+
+            </ul>
+
+            <category-type-ahead class="visible-md-block visible-lg-block"></category-type-ahead>
+
+        </div>
+
+    </div>
+</div>
+
+<category-type-ahead class="visible-sm-block visible-xs-block"></category-type-ahead>

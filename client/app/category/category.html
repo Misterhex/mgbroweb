@@ -1,0 +1,80 @@
+<div class="row visible-md-block visible-lg-block">
+    <div class="col-md-12 ">
+        <iframe style='border: 0px;height: 90px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/728x90.html'></iframe>
+    </div>
+</div>
+
+<div class="row visible-xs-block visible-sm-block">
+    <div class="col-sm-12 ">
+        <iframe style='border: 0px;height: 250px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/300x250.html'></iframe>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>{{category.category_name}}</h3>
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md-12">
+        <img class="pull-left" style="margin-right: 45px" ng-src="{{category.hosted_category_image | replaceImageHost }}" />
+        <table ng-show="category" class="pull-left">
+
+            <tr class="spaceUnder">
+                <td style="width:120px">Alternate Name:</td>
+                <td>{{category.alt_name}}</td>
+            </tr>
+
+            <tr class="spaceUnder">
+                <td>Year Of Release:</td>
+                <td>{{category.year_of_release}}</td>
+            </tr>
+
+            <tr class="spaceUnder">
+                <td>Status:</td>
+                <td>{{category.status}}</td>
+            </tr>
+
+            <tr class="spaceUnder">
+                <td>Author:</td>
+                <td>{{category.author}}</td>
+            </tr>
+
+            <tr class="spaceUnder">
+                <td>Artist:</td>
+                <td>{{category.artist}}</td>
+            </tr>
+
+            <tr class="spaceUnder">
+                <td>Genres:</td>
+                <td class="pull-left">
+                    <ul class="pager">
+                        <li ng-repeat="genre in category.genres" ><a ng-href="/genres/{{genre}}">{{genre}}</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div ng-show="category.description" class="row top-buffer-small">
+    <div class="col-md-12">
+        <div class="well well-sm">
+            {{category.description}}
+        </div>
+    </div>
+</div>
+
+<div ng-if="category" class="row">
+    <div class="col-md-12">
+        <dir-pagination-controls></dir-pagination-controls>
+    </div>
+</div>
+
+<div dir-paginate="chapter in category.chapters | itemsPerPage: 30" class="row top-buffer-small">
+    <div class="col-md-12">
+        <a ui-sref="chapter({category: $parent.$stateParams.category, chapterNo: chapter.chapter_no})">{{chapter.chapter_name}}</a>
+    </div>
+</div>

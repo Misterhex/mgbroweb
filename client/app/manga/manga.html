@@ -1,0 +1,114 @@
+<div id="mainrow" class="row">
+    <div class="col-md-12">
+        <div ncy-breadcrumb></div>
+    </div>
+</div>
+
+<div class="row visible-md-block visible-lg-block">
+    <div class="col-md-12 ">
+        <iframe style='border: 0px;height: 90px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/728x90.html'></iframe>
+    </div>
+</div>
+
+<div id="chapternamerow" class="row">
+    <div class="col-md-12">
+        <h3 itemprop="name">{{chapter.chapter.name}}</h3>
+    </div>
+</div>
+
+<div id="pagerow" class="row top-buffer-small">
+    <div class="col-md-12">
+        <select class="pull-left" ng-show="selectedPage && chapter.pages" onchange="location = this.options[this.selectedIndex].value;">
+            <option ng-repeat="page in chapter.pages" ng-selected="{{$stateParams.pageNo == page.pageNo}}" value="/manga/{{$parent.chapter.category.name}}/{{$parent.chapter.chapterNo}}/{{page.pageNo}}">
+                Page {{page.pageNo}}
+            </option>
+        </select>
+
+        <span ng-if="hasLoaded">
+			<a ng-href="{{nextUrl}}" class="pull-right">Next <i class="fa fa-arrow-right"></i></a>
+			<a ng-href="{{previousUrl}}" style="margin-right:35px;" class="pull-right"> <i class="fa fa-arrow-left"></i> Previous</a>
+		</span>
+    </div>
+</div>
+<div style="min-height:600px;padding-top: 15px;" class="row">
+    <div class="col-md-2 visible-md-block visible-lg-block">
+        <iframe style='border: 0px;height: 600px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/160x600.html'></iframe>
+    </div>
+    
+    <div class="col-md-8 text-center">
+        <a ng-href="{{nextUrl}}">
+            <img itemprop="image" rel="noreferrer" style="max-width: 100%;" ng-src="{{selectedPage.mangaSrc | replaceImageHost}}" image-loaded="onImageLoaded()"
+            ng-show="isImageLoaded" />
+        </a>
+        <div ng-show="!isImageLoaded">
+
+           <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+          </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-2 visible-md-block visible-lg-block">
+        <iframe style='border: 0px;height: 600px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/160x600.html'></iframe>
+    </div>
+</div>
+
+
+<div id="adsrow2" class="row visible-md-block visible-lg-block">
+    <div class="col-md-12 ">
+        <iframe id="adsframe2" style='border: 0px;height: 90px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/728x90.html'></iframe>
+    </div>
+</div>
+
+<div id="mobileads" class="row visible-xs-block visible-sm-block">
+    <div class="col-sm-12 ">
+        <iframe style='border: 0px;height: 250px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/300x250.html'></iframe>
+    </div>
+</div>
+
+<div style="padding-top: 20px;" class="row">
+    <div class="col-md-12">
+        <tips keyword="keyword"></tips>
+    </div>
+</div>
+
+<div id="rowchapternav" class="row">
+
+    <div class="col-md-8">
+
+        <div id="lastchapterrownav" ng-show="lastChapterNo" class="row" style="padding-top:15px">
+            <div class="col-md-12">
+                <p>{{$stateParams.category}}&nbsp;{{$stateParams.chapterNo}} Chapter Navigation:</p>
+            </div>
+
+            <div id="previousrow" ng-show="previousChapterNo > 0" class="col-md-12">Previous Chapter :
+                <a ui-sref="manga({category: $stateParams.category, chapterNo: previousChapterNo, pageNo: 1 })">
+					&nbsp;{{$stateParams.category}}&nbsp;{{previousChapterNo}}
+				</a>
+            </div>
+            <br/>
+            <div id="nextchapternav" ng-show="lastChapterNo && nextChapterNo <= lastChapterNo" class="col-md-12">Next Chapter :
+                <a ui-sref="manga({category: $stateParams.category, chapterNo: nextChapterNo, pageNo: 1 })">
+					{{$stateParams.category}}&nbsp;{{ nextChapterNo }}&nbsp;
+				</a>
+            </div>
+        </div>
+
+        <div id="publisher" ng-if="chapter" style="padding-top: 15px;" class="row">
+            <div class="col-md-12">
+                <seo-text keyword="keyword"></seo-text>
+                <div itemprop="publisher">published by: <span>okatu</span> <span itemprop="datePublished">{{datePublished}}</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="lastadsrow" class="col-md-4 visible-md-block visible-lg-block">
+        <iframe style='border: 0px;height: 250px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/300x250.html'></iframe>
+    </div>
+
+</div>

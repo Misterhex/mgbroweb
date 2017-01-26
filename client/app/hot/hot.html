@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-md-4 top-buffer-small" ng-repeat="chapter in mangas">
+		<div class="media ">
+			<div ui-sref="manga({ category: chapter.category.name, chapterNo: chapter.chapterNo, pageNo: 1 })" class="media-left">
+				<a ui-sref="manga({ category: chapter.category.name, chapterNo: chapter.chapterNo, pageNo: 1 })">
+					<img style="height:84px; width:64px; margin-right: 5px" class="pull-left media-object img-rounded" ng-src="{{ chapter.category.categoryImage | replaceImageHost }}"
+					alt="">
+				</a>
+			</div>
+			<div class="media-body">
+				<h5 class="media-heading">
+					<a style="color: black" ui-sref="manga({ category: chapter.category.name, chapterNo: chapter.chapterNo, pageNo: 1 })">
+						{{chapter.chapter.name}}
+					</a>
+				</h5> 
+				<span>
+					<a style="color: #777;" ui-sref="category({category: chapter.category.name})">
+					{{chapter.category.name}}
+					</a>
+				</span>
+				<p>{{chapter.scrappedUnixTIme | fromUnixTimeAgo }}</p>
+			</div>
+		</div>
+	</div>
+</div>

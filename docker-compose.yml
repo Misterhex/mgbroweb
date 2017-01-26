@@ -1,0 +1,23 @@
+mgbroweb:
+   build: .
+   command: bash -c "grunt build && node dist/server/app.js"
+   restart: always
+   environment:
+   - NODE_ENV=production
+   - POSTGRES_USER=xxx
+   - POSTGRES_DB=xxx
+   - POSTGRES_PASSWORD=xxx
+   - POSTGRES_PORT_5432_TCP_ADDR=xxx
+   ports:
+   - "8080:8080"
+   links:
+   - gomg
+gomg:
+   build: ~/go/src/bitbucket.org/misterhex86/gomg
+   restart: always
+   environment:
+   - CONTAINER_NAME=images
+   - POSTGRES_USER=xxx
+   - POSTGRES_DB=xxx
+   - POSTGRES_PASSWORD=xxx
+   - POSTGRES_PORT_5432_TCP_ADDR=xxx

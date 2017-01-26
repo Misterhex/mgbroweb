@@ -1,0 +1,13 @@
+config.js
+newrelic*
+node_modules
+*.swp
+public
+.tmp
+.sass-cache
+.idea
+client/bower_components
+dist
+/server/config/local.env.js
+npm-debug.log
+client/config.js

@@ -1,0 +1,20 @@
+<div class="media ">
+    <div ui-sref="category({category: category.category_name})" class="media-left">
+        <a ui-sref="category({category: category.category_name})">
+            <img style="height:164px; width:124px; margin-right: 5px" class="pull-left media-object img-rounded" ng-src="{{category.hosted_category_image | replaceImageHost }}"
+            alt="">
+        </a>
+    </div>
+    <div class="media-body">
+        <h5 class="media-heading">
+            <a style="color: black" ui-sref="category({category: category.category_name})">
+                {{category.category_name}}
+            </a>
+        </h5>
+        <em>{{category.chapter_count}} chapters</em>
+        <br/>
+        
+        <em>{{category.total_views || 1}} views</em>
+
+    </div>
+</div>

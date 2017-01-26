@@ -1,0 +1,31 @@
+<div class="row visible-md-block visible-lg-block">
+    <div class="col-md-12 ">
+        <iframe style='border: 0px;height: 90px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/728x90.html'></iframe>
+    </div>
+</div>
+
+<div class="row visible-xs-block visible-sm-block">
+    <div class="col-sm-12 ">
+        <iframe style='border: 0px;height: 250px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/300x250.html'></iframe>
+    </div>
+</div>
+
+<div style="min-height:900px" class="row top-buffer-medium">
+	<div class="col-md-12">
+		<tabset class="tab-animation">
+            
+			<tab heading="Popular">
+				<popular-update on-loaded="onLoaded()"></popular-update>
+			</tab>
+            
+			<tab heading="Latest">
+				<recent-chapter on-loaded="onLoaded()"></recent-chapter>
+			</tab>
+
+			<tab heading="Most Viewed">
+				<most-popular on-loaded="onLoaded()"></most-popular>
+			</tab>
+            
+		</tabset>
+	</div>
+</div>

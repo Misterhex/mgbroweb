@@ -1,0 +1,41 @@
+<div class="row top-buffer-medium">
+    <div class="col-md-12">
+        <ul class="pager">
+            <li ng-repeat="genre in genres"><a ng-href="/genres/{{genre.name}}">{{genre.name}}</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row top-buffer-small">
+    <div class="col-md-12">
+        <tabset class="tab-animation">
+            <tab heading="{{$stateParams.genre}}">
+                <div class="row">
+                    <div ng-if="listing" class="col-md-12">
+                        <dir-pagination-controls></dir-pagination-controls>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 top-buffer-small" dir-paginate="category in listing | itemsPerPage: 30">
+                        <category-tile category="category"></category-tile>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>
+
+<br/>
+
+
+<div class="row visible-md-block visible-lg-block">
+    <div class="col-md-12 ">
+        <iframe style='border: 0px;height: 90px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/728x90.html'></iframe>
+    </div>
+</div>
+
+<div class="row visible-xs-block visible-sm-block">
+    <div class="col-sm-12 ">
+        <iframe style='border: 0px;height: 250px;overflow: hidden;width: 100%;text-align: center;' scrolling='no' src='/ads/300x250.html'></iframe>
+    </div>
+</div>

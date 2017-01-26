@@ -1,0 +1,5 @@
+<alert ng-if="$localStorage.lastManga && !isDismissed" type="{{alertType}}" close="closeAlert()">
+      <a ui-sref="manga($localStorage.lastManga)" class="alert-link">
+    Continue reading - {{$localStorage.lastManga.category}} {{$localStorage.lastManga.chapterNo}} Page {{$localStorage.lastManga.pageNo}}
+    </a>
+</alert>
